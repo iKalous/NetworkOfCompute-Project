@@ -1,0 +1,16 @@
+{
+    "server": "HTTP Socket Server",
+    "version": "1.0",
+    "features": [
+        "Static resource serving",
+        "User registration",
+        "User authentication",
+        "Persistent connections",
+        "Multiple MIME types"
+    ],
+    "endpoints": {
+        "register": "/api/register",
+        "login": "/api/login"
+    },
+    "status": "running"
+}

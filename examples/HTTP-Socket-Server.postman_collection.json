@@ -1,0 +1,404 @@
+{
+    "info": {
+        "_postman_id": "http-socket-server-collection",
+        "name": "HTTP Socket Server API",
+        "description": "HTTP Socket Server的API测试集合，包含用户注册、登录和静态资源访问的示例请求",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "User Management",
+            "item": [
+                {
+                    "name": "Register User - Success",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"alice\",\n    \"password\": \"alice123\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/register",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "register"
+                            ]
+                        },
+                        "description": "注册新用户。用户名必须3-20个字符，密码至少6个字符。"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Register User - Duplicate",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"alice\",\n    \"password\": \"alice123\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/register",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "register"
+                            ]
+                        },
+                        "description": "尝试注册已存在的用户名，应该返回400错误。"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Register User - Username Too Short",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"ab\",\n    \"password\": \"password123\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/register",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "register"
+                            ]
+                        },
+                        "description": "用户名太短（少于3个字符），应该返回400错误。"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Register User - Password Too Short",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"charlie\",\n    \"password\": \"12345\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/register",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "register"
+                            ]
+                        },
+                        "description": "密码太短（少于6个字符），应该返回400错误。"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login User - Success",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"alice\",\n    \"password\": \"alice123\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/login",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "login"
+                            ]
+                        },
+                        "description": "使用正确的用户名和密码登录，返回会话token。"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login User - Wrong Password",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"alice\",\n    \"password\": \"wrongpassword\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/login",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "login"
+                            ]
+                        },
+                        "description": "使用错误的密码登录，应该返回401错误。"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login User - Nonexistent User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"nonexistent\",\n    \"password\": \"password123\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/login",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "login"
+                            ]
+                        },
+                        "description": "尝试登录不存在的用户，应该返回401错误。"
+                    },
+                    "response": []
+                }
+            ],
+            "description": "用户管理相关的API端点，包括注册和登录功能。"
+        },
+        {
+            "name": "Static Resources",
+            "item": [
+                {
+                    "name": "Get HTML File",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/index.html",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "index.html"
+                            ]
+                        },
+                        "description": "获取HTML静态资源文件。"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get JSON File",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/data.json",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "data.json"
+                            ]
+                        },
+                        "description": "获取JSON静态资源文件。"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Text File",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test.txt",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test.txt"
+                            ]
+                        },
+                        "description": "获取纯文本静态资源文件。"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get PNG Image",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/logo.png",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "logo.png"
+                            ]
+                        },
+                        "description": "获取PNG图片静态资源文件。"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Nonexistent File - 404",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/nonexistent.html",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "nonexistent.html"
+                            ]
+                        },
+                        "description": "尝试获取不存在的文件，应该返回404错误。"
+                    },
+                    "response": []
+                }
+            ],
+            "description": "静态资源访问端点，测试不同MIME类型的文件服务。"
+        },
+        {
+            "name": "Error Scenarios",
+            "item": [
+                {
+                    "name": "Unsupported Method - PUT",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"test\",\n    \"password\": \"test123\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/register",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "register"
+                            ]
+                        },
+                        "description": "使用不支持的HTTP方法（PUT），应该返回405错误。"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Unsupported Method - DELETE",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/login",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "login"
+                            ]
+                        },
+                        "description": "使用不支持的HTTP方法（DELETE），应该返回405错误。"
+                    },
+                    "response": []
+                }
+            ],
+            "description": "错误场景测试，验证服务器的错误处理能力。"
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:8080",
+            "type": "string"
+        }
+    ]
+}
