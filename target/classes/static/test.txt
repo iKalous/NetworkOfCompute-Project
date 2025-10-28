@@ -1,0 +1,9 @@
+这是一个纯文本测试文件。
+
+HTTP Socket Server 测试内容：
+- 支持GET和POST方法
+- 支持多种MIME类型
+- 支持长连接（Keep-Alive）
+- 提供用户注册和登录功能
+
+服务器使用Java Socket API实现，完全基于JDK 17标准库。

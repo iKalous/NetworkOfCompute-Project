@@ -1,0 +1,9 @@
+com\http\protocol\HttpRequestTest.class
+com\http\protocol\HttpStatusTest.class
+com\http\server\UserRegistryTest.class
+com\http\server\ServerIntegrationTest.class
+com\http\client\HttpClientTest.class
+com\http\EndToEndTest.class
+com\http\protocol\HttpResponseTest.class
+com\http\util\JsonParserTest.class
+com\http\protocol\MimeTypeTest.class
