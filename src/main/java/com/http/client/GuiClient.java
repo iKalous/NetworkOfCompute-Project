@@ -16,7 +16,7 @@ public class GuiClient extends JFrame implements ClientInterface {
     private final HttpClient client;
     
     // 输入组件
-    private JTextField urlField;
+    private JComboBox<String> urlComboBox;
     private JComboBox<String> methodBox;
     private JTextArea headersArea;
     private JTextArea bodyArea;
@@ -74,13 +74,24 @@ public class GuiClient extends JFrame implements ClientInterface {
         // URL输入
         JPanel urlPanel = new JPanel(new BorderLayout(5, 0));
         urlPanel.add(new JLabel("URL:"), BorderLayout.WEST);
-        urlField = new JTextField("http://localhost:8080/");
-        urlPanel.add(urlField, BorderLayout.CENTER);
+        urlComboBox = new JComboBox<>(new String[]{
+                "http://localhost:8080/",
+                "http://localhost:8080/api/register",
+                "http://localhost:8080/api/login"
+        });
+        urlComboBox.setEditable(true);
+        urlComboBox.getEditor().setItem("http://localhost:8080/");
+        urlComboBox.addActionListener(e -> {
+            String selectedUrl = urlComboBox.getEditor().getItem().toString();
+            updateRequestBodyBasedOnUrl(selectedUrl);
+        });
+        urlPanel.add(urlComboBox, BorderLayout.CENTER);
         
         // 方法选择
         JPanel methodPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 0));
         methodPanel.add(new JLabel("Method:"));
         methodBox = new JComboBox<>(new String[]{"GET", "POST"});
+        methodBox.setSelectedItem("POST");
         methodBox.setPreferredSize(new Dimension(100, 25));
         methodPanel.add(methodBox);
         
@@ -171,6 +182,20 @@ public class GuiClient extends JFrame implements ClientInterface {
         
         return panel;
     }
+
+    /**
+     * 根据URL自动更新请求体内容
+     * @param url 选定的URL
+     */
+    private void updateRequestBodyBasedOnUrl(String url) {
+        if (url.contains("/api/register") || url.contains("/api/login")) {
+            bodyArea.setText("{\n    \"username\": \"testuser\",\n    \"password\": \"password123\"\n}");
+            methodBox.setSelectedItem("GET");
+        } else {
+            bodyArea.setText("");
+            methodBox.setSelectedItem("POST");
+        }
+    }
     
     /**
      * 处理发送请求按钮点击事件
@@ -188,7 +213,7 @@ public class GuiClient extends JFrame implements ClientInterface {
                 });
                 
                 // 获取输入
-                String url = urlField.getText().trim();
+                String url = urlComboBox.getEditor().getItem().toString().trim();
                 String method = (String) methodBox.getSelectedItem();
                 
                 if (url.isEmpty()) {
