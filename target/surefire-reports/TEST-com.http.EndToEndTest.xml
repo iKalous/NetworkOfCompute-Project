@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.http.EndToEndTest" time="0.653" tests="5" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.class.path" value="D:\ProjectI\NetworkOfCompute\target\test-classes;D:\ProjectI\NetworkOfCompute\target\classes;D:\maven\local\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;D:\maven\local\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;D:\maven\local\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;D:\maven\local\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\maven\local\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;D:\maven\local\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
+    <property name="sun.java.command" value="C:\Users\MECHREVO\AppData\Local\Temp\surefire13544669202088785454\surefirebooter-20251027231440710_3.jar C:\Users\MECHREVO\AppData\Local\Temp\surefire13544669202088785454 2025-10-27T23-14-40_520-jvmRun1 surefire-20251027231440710_1tmp surefire_0-20251027231440710_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="EndToEndTest"/>
+    <property name="surefire.test.class.path" value="D:\ProjectI\NetworkOfCompute\target\test-classes;D:\ProjectI\NetworkOfCompute\target\classes;D:\maven\local\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;D:\maven\local\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;D:\maven\local\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;D:\maven\local\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\maven\local\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;D:\maven\local\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\MECHREVO"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-04-15"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-17"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\ProjectI\NetworkOfCompute"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\MECHREVO\AppData\Local\Temp\surefire13544669202088785454\surefirebooter-20251027231440710_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.15+9-LTS-241"/>
+    <property name="user.name" value="MECHREVO"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="D:\maven\local"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\MECHREVO\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.15"/>
+    <property name="user.dir" value="D:\ProjectI\NetworkOfCompute"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="GBK"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:\Conda;D:\Conda\Library\mingw-w64\bin;D:\Conda\Library\usr\bin;D:\Conda\Library\bin;D:\Conda\Scripts;D:\Conda\bin;D:\Conda\condabin;C:\Program Files\PowerShell\7;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\libnvvp;C:\Program Files\Java\jdk-17\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\dotnet;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;d:\cursor\resources\app\bin;C:\mingw\x86_64-13.2.0-release-win32-seh-ucrt-rt_v11-rev1\mingw64\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs;D:\Redis;C:\Program Files\Docker\Docker\resources\bin;D:\maven\apache-maven-3.9.11-bin\apache-maven-3.9.11\bin;C:\Program Files\NVIDIA Corporation\Nsight Compute 2025.1.0;C:\Program Files\RedHat\Podman;C:\Program Files\PowerShell\7;C:\Users\MECHREVO\AppData\Local\Programs\Python\Python311\Scripts;C:\Users\MECHREVO\AppData\Local\Programs\Python\Python311;d:\Trae\bin;d:\Trae CN\bin;C:\Users\MECHREVO\AppData\Local\Programs\oh-my-posh\bin;D:\MySQL\MySQL Shell 8.0\bin;C:\Users\MECHREVO\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\MECHREVO\AppData\Local\Programs\Python\Python313;C:\Users\MECHREVO\AppData\Local\Microsoft\WindowsApps;D:\JetBrains\DataGrip 2025.1.3\bin;D:\JetBrains\PyCharm 2025.1.3.1\bin;D:\JetBrains\IntelliJ IDEA 2025.1.3\bin;D:\Microsoft VS Code\bin;D:\cursor\resources\app\bin;C:\Users\MECHREVO\AppData\Local\Programs\Ollama;C:\Users\MECHREVO\AppData\Roaming\npm;D:\maven\apache-maven-3.9.11-bin\apache-maven-3.9.11\bin;D:\Kiro\Kiro\bin;C:\Users\MECHREVO\.lmstudio\bin;.;C:\Users\MECHREVO\AppData\Roaming\Python\Scripts;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="17.0.15+9-LTS-241"/>
+    <property name="java.specification.maintenance.version" value="1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="testCompleteUserFlow" classname="com.http.EndToEndTest" time="0.09">
+    <system-out><![CDATA[HTTP Server started on port 8888
+Test server started on port 8888
+
+=== Test 1: Complete User Flow ===
+Step 1: Register new user
+Accepted connection from /127.0.0.1:63253
+Registration response: {"success":true,"message":"Registration successful"}
+
+Step 2: Login user
+Accepted connection from /127.0.0.1:63254
+Login response: {"success":true,"message":"Login successful","token":"ef5cbe4d-ef2c-429b-ada5-397b8758f499"}
+
+Step 3: Access static resource
+Accepted connection from /127.0.0.1:63255
+Static resource retrieved successfully
+=== Test 1 Complete ===
+
+]]></system-out>
+  </testcase>
+  <testcase name="testPersistentConnection" classname="com.http.EndToEndTest" time="0.004">
+    <system-out><![CDATA[
+=== Test 2: Persistent Connection ===
+Request 1:
+Accepted connection from /127.0.0.1:63256
+  Status: 200
+Request 2:
+Accepted connection from /127.0.0.1:63257
+  Status: 200
+Request 3:
+Accepted connection from /127.0.0.1:63258
+  Status: 200
+=== Test 2 Complete ===
+
+]]></system-out>
+  </testcase>
+  <testcase name="testConcurrentClients" classname="com.http.EndToEndTest" time="0.014">
+    <system-out><![CDATA[
+=== Test 3: Concurrent Clients ===
+Accepted connection from /127.0.0.1:63259
+Accepted connection from /127.0.0.1:63262
+Accepted connection from /127.0.0.1:63265
+Accepted connection from /127.0.0.1:63264
+Accepted connection from /127.0.0.1:63261
+Accepted connection from /127.0.0.1:63260
+Accepted connection from /127.0.0.1:63266
+Accepted connection from /127.0.0.1:63263
+Accepted connection from /127.0.0.1:63267
+Accepted connection from /127.0.0.1:63268
+Accepted connection from /127.0.0.1:63271
+Accepted connection from /127.0.0.1:63269
+Accepted connection from /127.0.0.1:63270
+Accepted connection from /127.0.0.1:63272
+Accepted connection from /127.0.0.1:63274
+Accepted connection from /127.0.0.1:63273
+Accepted connection from /127.0.0.1:63275
+Accepted connection from /127.0.0.1:63276
+Accepted connection from /127.0.0.1:63277
+Accepted connection from /127.0.0.1:63278
+Accepted connection from /127.0.0.1:63279
+Accepted connection from /127.0.0.1:63280
+Accepted connection from /127.0.0.1:63281
+Accepted connection from /127.0.0.1:63282
+Accepted connection from /127.0.0.1:63283
+Accepted connection from /127.0.0.1:63284
+Accepted connection from /127.0.0.1:63285
+Accepted connection from /127.0.0.1:63286
+Accepted connection from /127.0.0.1:63288
+Accepted connection from /127.0.0.1:63287
+Client 0 completed successfully
+Client 8 completed successfully
+Client 5 completed successfully
+Client 4 completed successfully
+Client 2 completed successfully
+Client 6 completed successfully
+Client 1 completed successfully
+Client 9 completed successfully
+Client 7 completed successfully
+Client 3 completed successfully
+Concurrent clients completed: 10/10
+=== Test 3 Complete ===
+
+]]></system-out>
+  </testcase>
+  <testcase name="testErrorScenarios" classname="com.http.EndToEndTest" time="0.004">
+    <system-out><![CDATA[
+=== Test 4: Error Scenarios ===
+Test 404 - Not Found:
+Accepted connection from /127.0.0.1:63289
+  Status: 404 - OK
+
+Test 405 - Method Not Allowed:
+Accepted connection from /127.0.0.1:63290
+  Status: 405 - OK
+
+Test 400 - Bad Request (username too short):
+Accepted connection from /127.0.0.1:63291
+  Status: 400 - OK
+
+Test 401 - Unauthorized:
+Accepted connection from /127.0.0.1:63292
+  Status: 401 - OK
+=== Test 4 Complete ===
+
+]]></system-out>
+  </testcase>
+  <testcase name="testDifferentMimeTypes" classname="com.http.EndToEndTest" time="0.005">
+    <system-out><![CDATA[
+=== Test 5: Different MIME Types ===
+Test HTML:
+Accepted connection from /127.0.0.1:63293
+  Content-Type: text/html - OK
+
+Test JSON:
+Accepted connection from /127.0.0.1:63294
+  Content-Type: application/json - OK
+
+Test TXT:
+Accepted connection from /127.0.0.1:63295
+  Content-Type: text/plain - OK
+=== Test 5 Complete ===
+
+]]></system-out>
+  </testcase>
+</testsuite>
