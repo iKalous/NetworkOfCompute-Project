@@ -50,6 +50,7 @@ public class HttpResponse {
         BufferedReader reader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
         
         // 解析状态行
+        // 格式："HTTP/1.1 200 OK\r\n"
         String statusLine = reader.readLine();
         if (statusLine == null || statusLine.isEmpty()) {
             throw new IOException("Invalid HTTP response: empty status line");
@@ -61,6 +62,7 @@ public class HttpResponse {
         }
         
         response.version = statusParts[0];
+        //把状态码抓出来
         try {
             response.statusCode = Integer.parseInt(statusParts[1]);
         } catch (NumberFormatException e) {
@@ -69,11 +71,15 @@ public class HttpResponse {
         response.statusMessage = statusParts.length > 2 ? statusParts[2] : "";
         
         // 解析响应头
+        //格式："Content-Type: text/html\r\n" +
+        // "Content-Length: " + body.length() + "\r\n" +
+        // "Connection: keep-alive\r\n" +
         String line;
         while ((line = reader.readLine()) != null && !line.isEmpty()) {
             int colonIndex = line.indexOf(':');
             if (colonIndex > 0) {
                 String headerName = line.substring(0, colonIndex).trim();
+                //trim会移除开头和结尾的所有空格
                 String headerValue = line.substring(colonIndex + 1).trim();
                 response.headers.put(headerName, headerValue);
             }

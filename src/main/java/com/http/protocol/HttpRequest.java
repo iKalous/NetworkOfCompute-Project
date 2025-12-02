@@ -15,11 +15,11 @@ import java.util.Map;
  */
 public class HttpRequest {
     
-    private String method;
-    private String uri;
-    private String version;
-    private Map<String, String> headers;
-    private byte[] body;
+    private String method; //请求方法
+    private String uri; // 资源分配符
+    private String version; // http版本
+    private Map<String, String> headers; //请求头信息
+    private byte[] body; //请求体内容
 
     public HttpRequest() {
         this.headers = new HashMap<>();
@@ -41,9 +41,11 @@ public class HttpRequest {
      */
     public static HttpRequest parse(InputStream input) throws IOException {
         HttpRequest request = new HttpRequest();
+        // InputStreamReader用于将输入流转换为字符流
         BufferedReader reader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
         
         // 解析请求行
+        // 第一行格式 "POST /api/login HTTP/1.1\r\n"
         String requestLine = reader.readLine();
         if (requestLine == null || requestLine.isEmpty()) {
             throw new IOException("Invalid HTTP request: empty request line");
@@ -59,6 +61,11 @@ public class HttpRequest {
         request.version = requestParts[2];
         
         // 解析请求头
+        /* 请求头是元数据部分 ， 示例如下
+         Host: www.example.com
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/91.0
+        Accept: text/html,application/json
+        * */
         String line;
         while ((line = reader.readLine()) != null && !line.isEmpty()) {
             int colonIndex = line.indexOf(':');
@@ -68,9 +75,10 @@ public class HttpRequest {
                 request.headers.put(headerName, headerValue);
             }
         }
-        
+        //请求头和请求体以空行分割
         // 解析请求体
         String contentLengthStr = request.headers.get("Content-Length");
+        //读取长度 ，循环读取是确保读到完整数据的方式
         if (contentLengthStr != null) {
             try {
                 int contentLength = Integer.parseInt(contentLengthStr);
@@ -136,7 +144,7 @@ public class HttpRequest {
         return output.toByteArray();
     }
 
-    // Getters and Setters
+    // 外部可能用到的接口
     
     public String getMethod() {
         return method;

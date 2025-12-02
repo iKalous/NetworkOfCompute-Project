@@ -7,14 +7,14 @@ import java.util.Map;
  * 提供文件扩展名到MIME类型的映射
  */
 public class MimeType {
-    
+    // MIME 类型
     private static final Map<String, String> MIME_TYPES = Map.of(
         ".html", "text/html",
         ".txt", "text/plain",
         ".json", "application/json",
         ".png", "image/png"
     );
-    
+    // 识别不了文件类型 ， 默认返回值
     private static final String DEFAULT_MIME_TYPE = "application/octet-stream";
 
     /**
@@ -31,9 +31,13 @@ public class MimeType {
         if (lastDotIndex == -1 || lastDotIndex == filename.length() - 1) {
             return DEFAULT_MIME_TYPE;
         }
-        
+        // 提取拓展名
         String extension = filename.substring(lastDotIndex).toLowerCase();
-        return MIME_TYPES.getOrDefault(extension, DEFAULT_MIME_TYPE);
+        String findExtension = MIME_TYPES.get(extension);
+        if(findExtension != null){
+            return findExtension;
+        }
+        return DEFAULT_MIME_TYPE;
     }
 
     /**
