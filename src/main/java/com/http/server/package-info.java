@@ -1,5 +1,4 @@
 /**
- * HTTP server components including connection handling,
- * request routing, and API handlers.
+ * HTTP 服务器组件，包括连接处理、请求路由和 API 处理程序
  */
 package com.http.server;

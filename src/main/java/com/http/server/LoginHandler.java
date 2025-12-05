@@ -23,13 +23,13 @@ public class LoginHandler implements RequestHandler {
 
     @Override
     public HttpResponse handle(HttpRequest request) {
-        // 验证请求方法为POST
+        // 验证请求方法为 POST
         if (!"POST".equalsIgnoreCase(request.getMethod())) {
             return createErrorResponse(HttpStatus.METHOD_NOT_ALLOWED, "Only POST method is allowed");
         }
 
         try {
-            // 解析请求body的JSON
+            // 解析请求 body 的 JSON
             String bodyString = request.getBodyAsString();
             if (bodyString == null || bodyString.trim().isEmpty()) {
                 return createErrorResponse(HttpStatus.BAD_REQUEST, "Request body is required");
@@ -37,7 +37,7 @@ public class LoginHandler implements RequestHandler {
 
             Map<String, String> jsonData = JsonParser.parseObject(bodyString);
             
-            // 提取username和password
+            // 提取 username 和 password
             String username = JsonParser.getString(jsonData, "username");
             String password = JsonParser.getString(jsonData, "password");
 

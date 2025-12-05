@@ -29,7 +29,7 @@ public class EndToEndTest {
     
     @BeforeAll
     public static void startServer() throws IOException, InterruptedException {
-        // 创建UserRegistry实例
+        // 创建 UserRegistry 实例
         UserRegistry userRegistry = new UserRegistry();
         
         // 创建RequestRouter并注册所有handler

@@ -114,7 +114,7 @@ public class CliClient implements ClientInterface {
                 }
             }
             
-            // 如果是POST请求，读取请求体
+            // 如果是 POST 请求，读取请求体
             if (method.equals("POST")) {
                 System.out.println("\nEnter request body (empty line to finish):");
                 StringBuilder bodyBuilder = new StringBuilder();
@@ -137,7 +137,7 @@ public class CliClient implements ClientInterface {
                 if (!body.isEmpty()) {
                     request.setBody(body);
                     
-                    // 如果没有设置Content-Type，默认使用application/json
+                    // 如果没有设置 Content-Type，默认使用 application/json
                     if (request.getHeader("Content-Type") == null) {
                         request.setHeader("Content-Type", "application/json");
                     }
@@ -181,7 +181,7 @@ public class CliClient implements ClientInterface {
         if (body.isEmpty()) {
             System.out.println("  (empty)");
         } else {
-            // 检查Content-Type来决定如何显示
+            // 检查 Content-Type 来决定如何显示
             String contentType = response.getHeader("Content-Type");
             
             if (contentType != null && (contentType.startsWith("text/") || 

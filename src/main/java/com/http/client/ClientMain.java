@@ -7,7 +7,7 @@ package com.http.client;
 public class ClientMain {
     
     public static void main(String[] args) {
-        // 创建HttpClient实例
+        // 创建 HttpClient 实例
         HttpClient httpClient = new HttpClient();
         
         // 检查命令行参数选择模式

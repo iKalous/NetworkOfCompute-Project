@@ -77,7 +77,11 @@ public class GuiClient extends JFrame implements ClientInterface {
         urlComboBox = new JComboBox<>(new String[]{
                 "http://localhost:8080/",
                 "http://localhost:8080/api/register",
-                "http://localhost:8080/api/login"
+                "http://localhost:8080/api/login",
+                "http://localhost:8080/test.txt",
+                "http://localhost:8080/logo.png",
+                "http://localhost:8080/index.html",
+                "http://localhost:8080/data.json"
         });
         urlComboBox.setEditable(true);
         urlComboBox.getEditor().setItem("http://localhost:8080/");
@@ -190,10 +194,10 @@ public class GuiClient extends JFrame implements ClientInterface {
     private void updateRequestBodyBasedOnUrl(String url) {
         if (url.contains("/api/register") || url.contains("/api/login")) {
             bodyArea.setText("{\n    \"username\": \"testuser\",\n    \"password\": \"password123\"\n}");
-            methodBox.setSelectedItem("GET");
+            methodBox.setSelectedItem("POST");
         } else {
             bodyArea.setText("");
-            methodBox.setSelectedItem("POST");
+            methodBox.setSelectedItem("GET");
         }
     }
     
@@ -242,7 +246,7 @@ public class GuiClient extends JFrame implements ClientInterface {
                     }
                 }
                 
-                // 如果是POST请求，添加请求体
+                // 如果是 POST 请求，添加请求体
                 if ("POST".equals(method)) {
                     String body = bodyArea.getText().trim();
                     if (!body.isEmpty()) {
@@ -318,7 +322,7 @@ public class GuiClient extends JFrame implements ClientInterface {
             if (body.isEmpty()) {
                 responseBodyArea.setText("(empty body)");
             } else {
-                // 检查Content-Type来决定如何显示
+                // 检查 Content-Type 来决定如何显示
                 String contentType = response.getHeader("Content-Type");
                 
                 if (contentType != null && (contentType.startsWith("text/") || 
