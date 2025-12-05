@@ -7,6 +7,7 @@ import com.http.server.*;
 import org.junit.jupiter.api.*;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -66,7 +67,6 @@ public class EndToEndTest {
     
     /**
      * 测试1: 完整的注册 -> 登录 -> 访问静态资源流程
-     * Requirements: 6.6, 8.7, 9.7
      */
     @Test
     @Order(1)
@@ -125,7 +125,6 @@ public class EndToEndTest {
     
     /**
      * 测试2: 长连接 - 在同一连接上发送多个请求
-     * Requirements: 6.6, 10.1, 10.2
      */
     @Test
     @Order(2)
@@ -154,7 +153,6 @@ public class EndToEndTest {
     
     /**
      * 测试3: 并发客户端
-     * Requirements: 10.1, 10.2
      */
     @Test
     @Order(3)
@@ -250,7 +248,6 @@ public class EndToEndTest {
     
     /**
      * 测试4: 错误场景
-     * Requirements: 5.6, 5.7, 8.7, 9.7
      */
     @Test
     @Order(4)
@@ -310,7 +307,6 @@ public class EndToEndTest {
     
     /**
      * 测试5: 不同MIME类型的静态资源
-     * Requirements: 7.1, 7.2, 7.3, 7.4
      */
     @Test
     @Order(5)
