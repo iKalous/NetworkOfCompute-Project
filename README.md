@@ -115,10 +115,10 @@ mvn test -Dtest=HttpRequestTest
 
 ```bash
 # 使用默认端口8080
-mvn exec:java -Dexec.mainClass="com.http.server.ServerMain"
+mvn exec:java -D"exec.mainClass"="com.http.server.ServerMain"
 
 # 指定端口
-mvn exec:java -Dexec.mainClass="com.http.server.ServerMain" -Dexec.args="9090"
+mvn exec:java -D"exec.mainClass"="com.http.server.ServerMain" -D"exec.args"="9090"
 ```
 
 或者编译后直接运行：
