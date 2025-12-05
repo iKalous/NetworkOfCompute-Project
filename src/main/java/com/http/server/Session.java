@@ -3,7 +3,7 @@ package com.http.server;
 import java.time.LocalDateTime;
 
 /**
- * Session data model representing an active user session.
+ * 会话数据模型，表示一个活跃的用户会话
  */
 public class Session {
     private final String token;

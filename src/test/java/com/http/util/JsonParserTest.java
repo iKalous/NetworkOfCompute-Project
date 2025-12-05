@@ -119,13 +119,13 @@ class JsonParserTest {
 
     @Test
     void testRoundTrip_RegisterRequest() {
-        // Build JSON
+        // 构建 JSON
         Map<String, String> data = new HashMap<>();
         data.put("username", "newuser");
         data.put("password", "securepass");
         String json = JsonParser.buildObject(data);
         
-        // Parse it back
+        // 将其解析回来
         Map<String, String> parsed = JsonParser.parseObject(json);
         
         assertEquals("newuser", parsed.get("username"));

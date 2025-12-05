@@ -4,18 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Simple JSON parser for handling registration and login request/response formats.
- * Supports basic JSON object parsing and building for string key-value pairs.
+ * 简单的 JSON 解析器 用于处理注册和登录请求/响应格式
+ * 支持基本的 JSON 对象解析和构建字符串键值对
  */
 public class JsonParser {
 
     /**
-     * Parse a simple JSON object string into a Map.
-     * Supports format: {"key1":"value1","key2":"value2"}
-     * 
-     * @param json JSON string to parse
-     * @return Map containing key-value pairs
-     * @throws IllegalArgumentException if JSON format is invalid
+     * 将简单的 JSON 对象字符串解析为 Map
+     * 支持格式: {"key1":"value1","key2":"value2"}
+     *
+     * @param json 要解析的 JSON 字符串
+     * @return 包含键值对的 Map
+     * @throws IllegalArgumentException 如果 JSON 格式无效
      */
     public static Map<String, String> parseObject(String json) {
         if (json == null || json.trim().isEmpty()) {
@@ -28,16 +28,16 @@ public class JsonParser {
         }
 
         Map<String, String> result = new HashMap<>();
-        
-        // Remove outer braces
+
+        // 移除外层大括号
         String content = trimmed.substring(1, trimmed.length() - 1).trim();
-        
-        // Empty object
+
+        // 空对象
         if (content.isEmpty()) {
             return result;
         }
 
-        // Split by comma (simple approach for non-nested objects)
+        // 按逗号分割（简单处理非嵌套对象）
         String[] pairs = content.split(",");
         
         for (String pair : pairs) {
@@ -56,11 +56,11 @@ public class JsonParser {
     }
 
     /**
-     * Build a JSON response object for registration/login success.
-     * 
-     * @param success Whether the operation was successful
-     * @param message Message to include in response
-     * @return JSON string
+     * 构建注册/登录成功的 JSON 响应对象
+     *
+     * @param success 操作是否成功
+     * @param message 响应中包含的消息
+     * @return JSON 字符串
      */
     public static String buildResponse(boolean success, String message) {
         StringBuilder json = new StringBuilder();
@@ -72,12 +72,12 @@ public class JsonParser {
     }
 
     /**
-     * Build a JSON response object for login success with token.
-     * 
-     * @param success Whether the operation was successful
-     * @param message Message to include in response
-     * @param token Session token
-     * @return JSON string
+     * 构建带 token 的登录成功 JSON 响应对象
+     *
+     * @param success 操作是否成功
+     * @param message 响应中包含的消息
+     * @param token 会话 token
+     * @return JSON 字符串
      */
     public static String buildResponseWithToken(boolean success, String message, String token) {
         StringBuilder json = new StringBuilder();
@@ -90,10 +90,10 @@ public class JsonParser {
     }
 
     /**
-     * Build a simple JSON object from a map of string key-value pairs.
-     * 
-     * @param data Map containing key-value pairs
-     * @return JSON string
+     * 从字符串键值对的 map 构建简单的 JSON 对象
+     *
+     * @param data 包含键值对的 Map
+     * @return JSON 字符串
      */
     public static String buildObject(Map<String, String> data) {
         if (data == null || data.isEmpty()) {
@@ -118,10 +118,10 @@ public class JsonParser {
     }
 
     /**
-     * Remove quotes from a string value.
-     * 
-     * @param str String that may be quoted
-     * @return Unquoted string
+     * 从字符串值中移除引号
+     *
+     * @param str 可能被引号包围的字符串
+     * @return 去除引号的字符串
      */
     private static String unquote(String str) {
         if (str.startsWith("\"") && str.endsWith("\"") && str.length() >= 2) {
@@ -131,38 +131,38 @@ public class JsonParser {
     }
 
     /**
-     * Add quotes around a string value, escaping internal quotes.
-     * 
-     * @param str String to quote
-     * @return Quoted string
+     * 在字符串值周围添加引号，转义内部引号
+     *
+     * @param str 要加引号的字符串
+     * @return 加引号的字符串
      */
     private static String quote(String str) {
         if (str == null) {
             return "\"\"";
         }
-        // Escape internal quotes and backslashes
+        // 转义内部引号和反斜杠
         String escaped = str.replace("\\", "\\\\").replace("\"", "\\\"");
         return "\"" + escaped + "\"";
     }
 
     /**
-     * Extract a string value from a parsed JSON map.
-     * 
-     * @param map Parsed JSON map
-     * @param key Key to extract
-     * @return Value or null if not found
+     * 从解析的 JSON map 中提取字符串值
+     *
+     * @param map 解析后的 JSON map
+     * @param key 要提取的键
+     * @return 值 如果未找到则返回 null
      */
     public static String getString(Map<String, String> map, String key) {
         return map.get(key);
     }
 
     /**
-     * Extract a required string value from a parsed JSON map.
-     * 
-     * @param map Parsed JSON map
-     * @param key Key to extract
-     * @return Value
-     * @throws IllegalArgumentException if key is not found
+     * 从解析的 JSON map 中提取必需的字符串值
+     *
+     * @param map 解析后的 JSON map
+     * @param key 要提取的键
+     * @return 值
+     * @throws IllegalArgumentException 如果找不到键
      */
     public static String getRequiredString(Map<String, String> map, String key) {
         String value = map.get(key);

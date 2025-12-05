@@ -3,7 +3,7 @@ package com.http.server;
 import java.time.LocalDateTime;
 
 /**
- * User data model representing a registered user in the system.
+ * 用户数据模型，表示系统中的注册用户
  */
 public class User {
     private final String username;
