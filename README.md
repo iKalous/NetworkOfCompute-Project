@@ -21,6 +21,9 @@
 - 组长：冯瑞杰
 - 组员: 彭世杰，赖均朗， 李秉轩
 
+## 项目地址
+- https://github.com/iKalous/NetworkOfCompute-Project
+
 ## 功能特性
 
 ### HTTP服务器
@@ -156,7 +159,8 @@ java -cp target/http-socket-server-1.0-SNAPSHOT.jar com.http.server.ServerMain 9
 
 ```bash
 # CLI模式（默认）
-mvn exec:java -Dexec.mainClass="com.http.client.ClientMain"
+mvn exec:java -D"exec.mainClass"="com.http.client.ClientMain"
+
 ```
 
 或者：
@@ -169,7 +173,8 @@ java -cp target/http-socket-server-1.0-SNAPSHOT.jar com.http.client.ClientMain
 
 ```bash
 # GUI模式
-mvn exec:java -Dexec.mainClass="com.http.client.ClientMain" -Dexec.args="gui"
+mvn exec:java -D"exec.mainClass"="com.http.client.ClientMain" -D"exec.args"="gui"
+
 ```
 
 或者：
