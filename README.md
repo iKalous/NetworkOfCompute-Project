@@ -16,6 +16,14 @@
 - 并发请求处理（线程池）
 - 命令行和GUI客户端界面
 
+
+## 项目成员：
+- 组长：冯瑞杰
+- 组员: 彭世杰，赖均朗， 李秉轩
+
+## 项目地址
+- https://github.com/iKalous/NetworkOfCompute-Project
+
 ## 功能特性
 
 ### HTTP服务器
@@ -151,7 +159,8 @@ java -cp target/http-socket-server-1.0-SNAPSHOT.jar com.http.server.ServerMain 9
 
 ```bash
 # CLI模式（默认）
-mvn exec:java -Dexec.mainClass="com.http.client.ClientMain"
+mvn exec:java -D"exec.mainClass"="com.http.client.ClientMain"
+
 ```
 
 或者：
@@ -164,7 +173,8 @@ java -cp target/http-socket-server-1.0-SNAPSHOT.jar com.http.client.ClientMain
 
 ```bash
 # GUI模式
-mvn exec:java -Dexec.mainClass="com.http.client.ClientMain" -Dexec.args="gui"
+mvn exec:java -D"exec.mainClass"="com.http.client.ClientMain" -D"exec.args"="gui"
+
 ```
 
 或者：
@@ -417,20 +427,3 @@ kill -9 <PID>
 # 清理并重新编译
 mvn clean compile test
 ```
-
-## 许可证
-
-本项目仅用于学习和教育目的。
-
-## 作者
-
-HTTP Socket Server Project
-
-## 更新日志
-
-### v1.0.0 (2025-10-27)
-- 初始版本发布
-- 实现HTTP/1.1基本协议支持
-- 实现服务器和客户端
-- 添加用户注册登录功能
-- 完整的测试覆盖
